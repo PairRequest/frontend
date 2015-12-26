@@ -11,9 +11,12 @@ export default Ember.Route.extend({
       const flashMessages = this.get('flashMessages');
       const session = this.get('session');
       
-      let user = this.store.createRecord('user', params)
+      let user;
+      
+      this.store.createRecord('user', params)
         .save()
-        .then(()=>{
+        .then((_user)=>{
+          user = _user;
           return session.restore(user);
         })
         .then(()=>{
