@@ -1,13 +1,14 @@
 import Authenticator from 'ember-simple-auth/authenticators/base';
 
 const {
-  inject
+  inject,
+  RSVP
 } = Ember;
 
 export default Authenticator.extend({
   ajax: inject.service(),
-  restore() {
-    debugger;
+  restore(session) {
+    return RSVP.resolve(session);    
   },
   authenticate({email, password}) {
     let ajax = this.get('ajax');
@@ -15,7 +16,13 @@ export default Authenticator.extend({
       data: { email, password }
     });
   },
-  invalidate() {
-    
+  invalidate({id}) {
+    let ajax = this.get('ajax');
+    return ajax.post('/users/logout', {
+      data: { access_token: id }
+    })
+    .catch(()=>{
+      // let it succeed when request fails
+    });
   }
 });
