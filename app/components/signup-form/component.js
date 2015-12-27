@@ -15,7 +15,9 @@ export default Ember.Component.extend({
                     !isEmpty(passwordConfirm) && 
                     password === passwordConfirm;
       if (isValid) {
-        this['on-submit']({ email, password });
+        this['on-submit']({ email, password }).catch(({errors})=>{
+          this.set('errors', errors);
+        });
       }
     }
   }

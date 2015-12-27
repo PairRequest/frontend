@@ -1,4 +1,5 @@
-{{signup-form 
-  errors=errors
-  on-submit=(route-action 'register')
-}}
+{{#validated-form errors=errors}}
+  {{signup-form 
+    on-submit=(route-action 'submit')
+  }}
+{{/validated-form}}

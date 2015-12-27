@@ -1,0 +1,11 @@
+<div class="{{unless noErrors 'form-with-errors'}}">
+  {{#unless noErrors}}
+    <ul class="form-errors">
+    {{#each errors as |error|}}
+      <li>{{error.detail}}</li>      
+    {{/each}}
+    </ul>
+  {{/unless}}
+  {{yield}}
+</div>
+

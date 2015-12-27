@@ -1,15 +1,17 @@
-<form {{action 'submit' on="submit"}}>
-  {{input 
-    type="text" 
-    value=email 
-    placeholder="Email"
-    key-press=(action (mut email))
-  }}
-  {{input 
-    type="password" 
-    value=password 
-    placeholder="Password"
-    key-press=(action (mut password))
-  }}
-  <button {{action 'submit'}}>Login</button>
-</form>
+{{#validated-form errors=errors}}
+  <form {{action 'submit' on="submit"}}>
+    {{input 
+      type="text" 
+      value=email 
+      placeholder="Email"
+      key-press=(action (mut email))
+    }}
+    {{input 
+      type="password" 
+      value=password 
+      placeholder="Password"
+      key-press=(action (mut password))
+    }}
+    <button {{action 'submit'}}>Login</button>
+  </form>
+{{/validated-form}}
