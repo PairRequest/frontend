@@ -11,9 +11,9 @@ export default Ember.Component.extend({
       let password = this.get('password');
       let passwordConfirm = this.get('passwordConfirm');
       // TODO: replace this ember-cp-validations
-      let isValid = !isEmpty(email) && !isEmpty(password) 
-                    && !isEmpty(passwordConfirm) 
-                    && password === passwordConfirm;
+      let isValid = !isEmpty(email) && !isEmpty(password) && 
+                    !isEmpty(passwordConfirm) && 
+                    password === passwordConfirm;
       if (isValid) {
         this['on-submit']({ email, password });
       }

@@ -5,23 +5,18 @@ const {
 } = Ember;
 
 export default Ember.Route.extend({
+  user: inject.service(),
   session: inject.service(),
   actions: {
-    register(params) {
-      const flashMessages = this.get('flashMessages');
+    register(credentials) {
+      // const flashMessages = this.get('flashMessages');
       const session = this.get('session');
+      const user = this.get('user');
       
-      let user;
-      
-      this.store.createRecord('user', params)
-        .save()
-        .then((_user)=>{
-          user = _user;
-          return session.restore(user);
-        })
-        .then(()=>{
-          flashMessages.success('You were registered successfully!');          
-          this.transitionTo('profile', user);
+      user.register(credentials)
+        .then((model)=>{
+          user.setCurrent(model);
+          return session.authenticate('authenticator:api', credentials);
         })
         .catch((errors)=>{
           this.set('errors', errors);

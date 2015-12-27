@@ -1,21 +1,21 @@
 <form {{action 'submit' on="submit"}}>
-  <input 
+  {{input 
     type="text" 
-    value={{email}} 
+    value=email 
     placeholder="Email"
-    oninput={{action (mut email) value="target.value"}}
-    >
-  <input 
+    key-press=(action (mut email))
+  }}
+  {{input 
     type="password" 
-    value={{password}} 
+    value=password
     placeholder="Password"
-    oninput={{action (mut password) value="target.value"}}
-    >
-  <input 
+    key-press=(action (mut password))
+  }}
+  {{input 
     type="password" 
-    value={{passwordConfirm}} 
+    value=passwordConfirm 
     placeholder="Password"
-    oninput={{action (mut passwordConfirm) value="target.value"}}
-    >
+    key-press=(action (mut passwordConfirm))
+  }}
   <button {{action 'submit'}}>Sign up</button>
 </form>
