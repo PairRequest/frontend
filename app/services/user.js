@@ -12,12 +12,27 @@ export default Ember.Service.extend({
     
     return store.createRecord('user', attributes).save();
   },
-  resetPassword() {
-    const ajax = this.get('ajax');
-    
+  /**
+   * Provide new password to be used
+   */
+  resetPassword({ accessToken, password }) {
+    return this.get('ajax').post('/reset-password', {
+      data: {
+        password,
+        confirmation: password,
+        headers: {
+          access_token: accessToken
+        }
+      }
+    });
   },
-  requestPasswordReset() {
-    
+  /**
+   * Ask for password change link to be sent to this email address.
+   */
+  requestPasswordReset(email) {
+    return this.get('ajax').post('/users/reset', {
+      data: { email }
+    });
   },
   setCurrent(model) {
     this.set('current', model);
