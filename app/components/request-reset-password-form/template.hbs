@@ -1,0 +1,6 @@
+{{#validated-form errors=errors}}
+  <form {{action 'submit' on='submit'}}>
+    {{input value=email key-press=(action (mut email))}}
+    <button {{action 'submit'}}>Submit</button>
+  </form>
+{{/validated-form}}

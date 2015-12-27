@@ -1,3 +1,5 @@
-{{login-form 
+{{#login-form 
   on-submit=(route-action 'submit')
 }}
+  {{#link-to 'forgot-password'}}Forgot password?{{/link-to}} {{#link-to 'signup'}}Sign up{{/link-to}}
+{{/login-form}}

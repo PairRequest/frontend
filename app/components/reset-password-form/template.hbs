@@ -1,0 +1,17 @@
+{{#validated-form errors=errors}}
+  <form {{action 'submit' on="submit"}}>
+    {{input 
+      type="password" 
+      value=password
+      placeholder="New Password"
+      key-press=(action (mut password))
+    }}
+    {{input 
+      type="password" 
+      value=passwordConfirm 
+      placeholder="Confirm New Password"
+      key-press=(action (mut passwordConfirm))
+    }}
+    <button {{action 'submit'}}>Sign up</button>
+  </form>
+{{/validated-form}}

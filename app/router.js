@@ -12,6 +12,9 @@ Router.map(function() {
   this.route('profile', function() {
     this.route('edit');
   });
+  this.route('forgot-password', function(){
+    this.route('new');
+  });
 });
 
 export default Router;
