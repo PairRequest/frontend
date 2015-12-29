@@ -8,9 +8,12 @@ export default Ember.Service.extend({
   ajax: inject.service(),
   store: inject.service(),
   register(attributes) {
-    const store = this.get('store');
-    
-    return store.createRecord('user', attributes).save();
+    return this.get('store').createRecord('user', attributes).save();
+  },
+  confirm(params) {
+    return this.get('ajax').request('/users/confirm', {
+      data: params
+    });
   },
   /**
    * Provide new password to be used

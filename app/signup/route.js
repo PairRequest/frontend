@@ -9,15 +9,7 @@ export default Ember.Route.extend({
   session: inject.service(),
   actions: {
     submit(credentials) {
-      // const flashMessages = this.get('flashMessages');
-      const session = this.get('session');
-      const user = this.get('user');
-      
-      return user.register(credentials)
-        .then((model)=>{
-          user.setCurrent(model);
-          return session.authenticate('authenticator:api', credentials);
-        });
+      return this.get('user').register(credentials);
     }
   }
 });

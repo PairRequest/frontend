@@ -6,6 +6,9 @@
     {{/each}}
     </ul>
   {{/unless}}
+  {{#if detail}}
+    <div class="detail">{{detail}}</div>
+  {{/if}}
   {{yield}}
 </div>
 

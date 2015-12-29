@@ -4,6 +4,11 @@ const {
   isEmpty
 } = Ember;
 
+const EMAIL_VERIFICATION_REQUIRED = `
+  Please check your email and click on the 
+  verification link before logging in.
+  `;
+
 export default Ember.Component.extend({
   actions: {
     submit() {
@@ -15,9 +20,13 @@ export default Ember.Component.extend({
                     !isEmpty(passwordConfirm) && 
                     password === passwordConfirm;
       if (isValid) {
-        this['on-submit']({ email, password }).catch(({errors})=>{
-          this.set('errors', errors);
-        });
+        this['on-submit']({ email, password })
+          .then(() => {
+            this.set('detail', EMAIL_VERIFICATION_REQUIRED);
+          })
+          .catch(({errors})=>{
+            this.set('errors', errors);
+          });
       }
     }
   }

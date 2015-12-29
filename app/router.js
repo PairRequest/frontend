@@ -15,6 +15,8 @@ Router.map(function() {
   this.route('forgot-password', function(){
     this.route('new');
   });
+  // don't change this route because the user is directed here to confirm the email address
+  this.route('confirm', function() {});
 });
 
 export default Router;
