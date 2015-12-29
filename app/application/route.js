@@ -6,7 +6,6 @@ const {
 } = Ember;
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-  session: inject.service(),
   model(params) {
     const session = this.get('session');
     let { access_token, userId } = params;
