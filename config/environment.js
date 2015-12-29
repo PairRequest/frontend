@@ -16,6 +16,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    
+    torii: {
+      // a 'session' property will be injected on routes and controllers
+      providers: {
+        'github-oauth2': {
+          clientId: '296b5e6365a2bb7b5524',
+          scope: 'user:email'
+        }
+      }
     }
   };
 

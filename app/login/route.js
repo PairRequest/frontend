@@ -20,6 +20,15 @@ export default Ember.Route.extend({
         .then(model => {
           user.setCurrent(model);
         });
+    },
+    signInWithGitHub() {
+      this.get('session').authenticate('authenticator:torii', 'github')
+        .then(data =>{
+          console.log(data, arguments);
+        })
+        .catch(()=>{
+          console.log(arguments);
+        });
     }
   }
 });

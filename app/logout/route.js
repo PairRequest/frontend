@@ -7,6 +7,6 @@ const {
 export default Ember.Route.extend({
   session: inject.service(),
   model() {
-    return this.get('session').invalidate('authenticator:api');
+    return this.get('session').invalidate();
   }
 });
