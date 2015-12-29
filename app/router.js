@@ -12,7 +12,7 @@ Router.map(function() {
   this.route('profile', function() {
     this.route('edit');
   });
-  this.route('forgot-password', function(){});
+  this.route('forgot-password');
   // don't change this route because the user is directed here to confirm the email address
   this.route('confirm', function() {});
 });

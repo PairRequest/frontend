@@ -10,10 +10,15 @@ export default Authenticator.extend({
   restore(session) {
     return RSVP.resolve(session);    
   },
-  authenticate({email, password}) {
+  authenticate(credentials) {
+    let { access_token } = credentials;
+    if (access_token) {
+      return RSVP.resolve(credentials);
+    }
+    
     let ajax = this.get('ajax');
-    return ajax.post('/users/login?include=user', {
-      data: { email, password }
+    return ajax.post('/users/login', {
+      data: credentials
     });
   },
   invalidate({id}) {

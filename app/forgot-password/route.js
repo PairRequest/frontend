@@ -8,9 +8,7 @@ export default Ember.Route.extend({
   user: inject.service(),
   actions: {
     submit({email}) {
-      const user = this.get('user');
-      
-      return user.requestPasswordReset(email);
+      return this.get('user').requestPasswordReset(email);
     }
   }
 });
