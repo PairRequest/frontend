@@ -18,14 +18,15 @@ export default Ember.Service.extend({
   /**
    * Provide new password to be used
    */
-  resetPassword({ accessToken, password }) {
-    return this.get('ajax').post('/reset-password', {
+  resetPassword({ accessToken, email, password }) {
+    return this.get('ajax').post('/users/reset', {
       data: {
+        email,
         password,
         confirmation: password,
-        headers: {
-          access_token: accessToken
-        }
+      },
+      headers: {
+        access_token: accessToken
       }
     });
   },

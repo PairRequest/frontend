@@ -1,5 +1,5 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: [ 'access_token' ]
+  queryParams: [ 'access_token', 'email' ]
 });
