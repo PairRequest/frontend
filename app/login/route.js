@@ -9,26 +9,10 @@ export default Ember.Route.extend({
   session: inject.service(),
   actions: {
     submit(credentials) {
-      // const flashMessages = this.get('flashMessages');
-      const session = this.get('session');
-      const user = this.get('user');
-      
-      return session.authenticate('authenticator:api', credentials)
-        .then(({userId})=>{
-          return this.store.find('user', userId);
-        })
-        .then(model => {
-          user.setCurrent(model);
-        });
+      return this.get('session').authenticate('authenticator:api', credentials);
     },
-    signInWithGitHub() {
-      this.get('session').authenticate('authenticator:torii', 'github')
-        .then(data =>{
-          console.log(data, arguments);
-        })
-        .catch(()=>{
-          console.log(arguments);
-        });
+    oauthLogin(provider) {
+      return this.get('session').authenticate('authenticator:torii', provider);
     }
   }
 });

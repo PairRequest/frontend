@@ -19,11 +19,13 @@ module.exports = function(environment) {
     },
     
     torii: {
+      remoteServiceName: 'iframe',
       // a 'session' property will be injected on routes and controllers
       providers: {
         'github-oauth2': {
           clientId: '296b5e6365a2bb7b5524',
-          scope: 'user:email'
+          scope: 'user:email',
+          redirectUri: 'http://localhost:3000/api/auth/github'
         }
       }
     }
@@ -50,7 +52,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.torii.providers['github-oauth2']['redirectUri'] = 'http://www.pairrequest.com/api/auth/github';
   }
 
   return ENV;

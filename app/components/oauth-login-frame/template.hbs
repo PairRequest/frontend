@@ -1,0 +1,5 @@
+{{#if is-frame-visible}}
+  {{torii-iframe-placeholder}}
+{{else}}
+  {{yield (hash authenticate=(action 'authenticate'))}}
+{{/if}}

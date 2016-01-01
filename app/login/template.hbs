@@ -1,7 +1,13 @@
-<button {{action 'signInWithGitHub'}}>Sign in with Github</button>
 
 {{#login-form 
   on-submit=(route-action 'submit')
 }}
   {{#link-to 'forgot-password'}}Forgot password?{{/link-to}} {{#link-to 'signup'}}Sign up{{/link-to}}
 {{/login-form}}
+
+{{#oauth-login-frame 
+  on-authenticate=(route-action 'oauthLogin')
+  as |actions|
+}}
+  <button {{action actions.authenticate 'github'}}>Sign in with Github</button>
+{{/oauth-login-frame}}

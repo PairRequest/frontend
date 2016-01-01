@@ -37,8 +37,5 @@ export default Ember.Service.extend({
     return this.get('ajax').post('/users/reset', {
       data: { email }
     });
-  },
-  setCurrent(model) {
-    this.set('current', model);
   }
 });
