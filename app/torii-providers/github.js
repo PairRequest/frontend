@@ -12,9 +12,6 @@ export default GitHubOauth2Provider.extend({
     let url             = this.buildUrl();
     let responseParams  = this.get('responseParams');
     
-    return this.get('popup').open(url, responseParams, options)
-      .then(function (data) {
-        return { data };
-      });
+    return this.get('popup').open(url, responseParams, options);
   }
 });
