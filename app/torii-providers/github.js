@@ -8,7 +8,6 @@ export default GitHubOauth2Provider.extend({
   redirectUri,
   responseParams: [ 'access_token', 'userId' ],
   open: function(options){
-    let provider        = this.get('name');
     let url             = this.buildUrl();
     let responseParams  = this.get('responseParams');
     

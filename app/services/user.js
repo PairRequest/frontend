@@ -16,21 +16,6 @@ export default Ember.Service.extend({
     });
   },
   /**
-   * Provide new password to be used
-   */
-  resetPassword({ accessToken, email, password }) {
-    return this.get('ajax').post('/users/reset', {
-      data: {
-        email,
-        password,
-        confirmation: password,
-      },
-      headers: {
-        access_token: accessToken
-      }
-    });
-  },
-  /**
    * Ask for password change link to be sent to this email address.
    */
   requestPasswordReset(email) {

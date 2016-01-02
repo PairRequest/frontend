@@ -19,6 +19,7 @@ module.exports = function(environment) {
     },
     
     torii: {
+      sessionServiceName: 'session',
       remoteServiceName: 'iframe',
       // a 'session' property will be injected on routes and controllers
       providers: {

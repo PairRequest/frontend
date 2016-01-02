@@ -9,10 +9,10 @@ export default Ember.Route.extend({
   session: inject.service(),
   actions: {
     submit(credentials) {
-      return this.get('session').authenticate('authenticator:api', credentials);
+      return this.get('session').open('api', credentials);
     },
     oauthLogin(provider) {
-      return this.get('session').authenticate('authenticator:torii', provider);
+      return this.get('session').open(provider);
     }
   }
 });
