@@ -1,10 +1,37 @@
-<nav>
-  {{#if session.isAuthenticated}}
-    {{#link-to 'logout'}}Log out{{/link-to}}
-  {{else}}
-    {{#link-to 'login'}}Log in{{/link-to}}
-    {{#link-to 'signup'}}Sign up{{/link-to}}
-  {{/if}}
-</nav>
+<div class="container">
+  <nav class="navbar navbar-light bg-faded">
+    {{#link-to "index" class="navbar-brand"}}PairRequest{{/link-to}}
+    <ul class="nav navbar-nav pull-xs-right">
+    
+    {{#if session.isAuthenticated}}
+      <li class="nav-item">
+        {{#link-to 'logout' class="nav-link"}}Log out{{/link-to}}
+      </li>
+    {{else}}
+      <li class="nav-item">
+        {{#link-to 'login' class="nav-link"}}Log in{{/link-to}}
+      </li>
+      <li class="nav-item">
+        {{#link-to 'signup' class="nav-link"}}Sign up{{/link-to}}
+      </li>
+    {{/if}}
+    
+    <li class="nav-item">
+      <a class="nav-link" href="#">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Upcoming Sessions</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Open Requests</a>
+    </li>
+    <li class="nav-item">
+      {{#link-to 'create-request' class="btn btn-primary-outline"}}Create Pair Request{{/link-to}}
+    </li>
+    </ul>
+  </nav>
+  
+  {{outlet}}
+  
+</div>
 
-{{outlet}}
