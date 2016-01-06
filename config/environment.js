@@ -53,7 +53,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.torii.providers['github-oauth2']['redirectUri'] = 'http://www.pairrequest.com/api/auth/github';
+    ENV.torii.providers['github-oauth2']['clientId'] = '67d8b1bf886f5ebd0b44';
+    ENV.torii.providers['github-oauth2']['redirectUri'] = 'http://api.pairrequest.com/auth/github';
   }
 
   return ENV;
