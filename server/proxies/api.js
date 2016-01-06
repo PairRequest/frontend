@@ -1,5 +1,6 @@
 /*jshint node:true*/
-var proxyPath = '/api';
+var proxyPath = '/--/proxies/api';
+var proxyTarget = process.env.PROXY || 'localhost:3000';
 
 module.exports = function(app) {
   // For options, see:
@@ -11,8 +12,7 @@ module.exports = function(app) {
   });
 
   app.use(proxyPath, function(req, res, next){
-    // include root path in proxied request
-    req.url = proxyPath + '/' + req.url;
-    proxy.web(req, res, { target: 'http://localhost:3000' });
+    req.headers.host = proxyTarget;
+    proxy.web(req, res, { target: 'http://' + proxyTarget });
   });
 };
