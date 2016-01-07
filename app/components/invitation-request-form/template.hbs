@@ -18,6 +18,7 @@
         checked=willHelp
       }} I <strong>will</strong> help sometimes
     </label>
+    <br>
     <select onchange={{action (mut experience) value='target.value'}}>
     {{#each experienceLevels as |level|}}
         <option value={{level}} selected={{eq experience level}}>{{level}}</option>
