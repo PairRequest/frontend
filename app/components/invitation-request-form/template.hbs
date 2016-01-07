@@ -1,0 +1,29 @@
+{{#validated-form errors=errors}}
+  <form {{action 'submit' on="submit"}}>
+    {{input 
+      value=email
+      placeholder="Email"
+      key-press=(action (mut email))
+    }}<br>
+    <label>
+      {{input
+        type="checkbox"
+        checked=needHelp
+      }} I <strong>need</strong> help sometimes
+    </label>
+    <br>
+    <label>
+      {{input
+        type="checkbox"
+        checked=willHelp
+      }} I <strong>will</strong> help sometimes
+    </label>
+    <select onchange={{action (mut experience) value='target.value'}}>
+    {{#each experienceLevels as |level|}}
+        <option value={{level}} selected={{eq experience level}}>{{level}}</option>
+    {{/each}}
+    </select>
+    <br>
+    <button {{action 'submit'}}>Submit</button>
+  </form>
+{{/validated-form}}
