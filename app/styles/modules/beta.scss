@@ -1,0 +1,31 @@
+.beta-landing {
+  min-height: 100vh;
+  color: #808080;
+  
+  .beta-hero {
+    background: url(../images/hamsters.jpg) no-repeat;
+    background-size: cover;
+    min-height: 300px;
+    width: 100%;
+    
+    @include media-breakpoint-up(md) {
+      min-height: 100vh;
+    }
+    
+  }
+  .beta-intro {
+    padding: 2rem;
+    h2 {
+      font-weight: normal;
+      margin-bottom: 2rem;
+    }
+    @include media-breakpoint-up(lg) {
+      padding: 4rem;
+    }
+    form {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #ebebeb;
+    }
+  }
+}

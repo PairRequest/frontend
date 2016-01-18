@@ -4,27 +4,31 @@
       value=email
       placeholder="Email"
       key-press=(action (mut email))
+      class="form-control"
     }}<br>
-    <label>
-      {{input
-        type="checkbox"
-        checked=needHelp
-      }} I <strong>need</strong> help sometimes
-    </label>
-    <br>
-    <label>
-      {{input
-        type="checkbox"
-        checked=willHelp
-      }} I <strong>will</strong> help sometimes
-    </label>
-    <br>
-    <select onchange={{action (mut experience) value='target.value'}}>
+    <fieldset class="form-group">
+      <label>
+        {{input
+          type="checkbox"
+          checked=needHelp
+        }} I <strong>need</strong> help sometimes
+      </label>
+    </fieldset>
+    
+    <fieldset class="form-group">
+      <label>
+        {{input
+          type="checkbox"
+          checked=willHelp
+        }} I <strong>will</strong> help sometimes
+      </label>
+    </fieldset>
+    <select onchange={{action (mut experience) value='target.value'}} class="form-control">
     {{#each experienceLevels as |level|}}
         <option value={{level}} selected={{eq experience level}}>{{level}}</option>
     {{/each}}
     </select>
     <br>
-    <button {{action 'submit'}}>Submit</button>
+    <button {{action 'submit'}} class="btn btn-primary btn-block">Signup</button>
   </form>
 {{/validated-form}}
